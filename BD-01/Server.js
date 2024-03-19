@@ -10,7 +10,7 @@ app.listen(3000,()=>{
     console.log('Hare krishana')
 })
 
-app
+
 
 app.get('/',(request,response)=>{
     response.send('hariboll')
@@ -25,7 +25,7 @@ app.post('/api/cars',(req,res)=>{
 })
 
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://0.0.0.0:27017/myDatabase', { 
+mongoose.connect('mongodb://127.0.0.1:27017/myDatabase', { 
     useNewUrlParser: true, useUnifiedTopology: true })
 .then(() => {
     console.log("MongoDB connected successfully");

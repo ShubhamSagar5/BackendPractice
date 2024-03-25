@@ -9,7 +9,7 @@ exports.signUp = async(req,res) => {
 
         const {name,email,password,role} = req.body 
 
-        console.log(res.body)
+       
         const userData = await User.findOne({email})
 
         if(userData){

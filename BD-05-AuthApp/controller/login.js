@@ -5,7 +5,7 @@ const User  = require('../models/user')
 
 require('dotenv').config()
 
-exports.loginin = async(req,res) => {
+exports.login = async(req,res) => {
 
     try{
 

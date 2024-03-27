@@ -3,13 +3,13 @@ const router = express.Router()
 
 
 const {signUp} = require('../controller/signUp')
-const {loginin} = require('../controller/login')
+const {login} = require('../controller/login')
 
 const {auth,isStudent,isAdmin} = require('../middlewares/auth')
 
 
 router.post('/signUp',signUp)
-router.post('/login',loginin)
+router.post('/login',login)
 
 // Protected Routes 
 

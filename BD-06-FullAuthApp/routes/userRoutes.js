@@ -2,6 +2,8 @@ const express = require('express')
 
 const router = express.Router() 
 
+const User  = require("../models/userSchema")
+
 const {signUp} = require('../controller/signUp')
 const {login} = require('../controller/login')
 
@@ -31,6 +33,28 @@ router.get('/admin',auth,isAdmin,(req,res)=>{
         success:true,
         message:"Welcome to admin route successfull"
     })
+})
+
+router.get("/getmail",auth,async(req,res)=>{
+    try{
+
+        const id = req.user.id 
+        const user = await User.findById(id)
+
+       
+        return res.status(200).json({
+            success:true,
+            user:user,
+            message:"Get User Data Successfully"
+        })
+        
+
+    }catch(err){
+        return res.status(500).json({
+            success:false,
+            message:"Something error occur"
+        })
+    }
 })
 
 

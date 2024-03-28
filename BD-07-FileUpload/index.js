@@ -7,8 +7,14 @@ const Port = process.env.PORT
 
 app.use(express.json())
 
+const cloudinaryConnect = require('./config/cloudinary')
+cloudinaryConnect.cloudConnect()
+
 const fileupload = require('express-fileupload')
-app.use(fileupload())
+app.use(fileupload({
+    useTempFiles:true,
+    tempFileDir: '/tmp/'
+}))
 
 const fileRoute = require("./routes/FileUpload")
 app.use('/api/v1',fileRoute)

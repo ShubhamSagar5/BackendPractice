@@ -9,7 +9,7 @@ exports.loacalFileUpload = async(req,res) => {
         const file = req.files.file
         console.log(file)
 
-        let path = __dirname + "/file" + Date.now() + `.${file.name.split('.')[1]}`
+        let path = __dirname + "/file/" + Date.now() + `.${file.name.split('.')[1]}`
 
         file.mv(path,(err)=>{
             console.log(err)
